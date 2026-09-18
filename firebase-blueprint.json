@@ -1,0 +1,265 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GBMS Kaljoor School Management Database",
+  "description": "Firestore schema blueprint for Govt Boys Middle School Kaljoor",
+  "entities": {
+    "students": {
+      "title": "Student",
+      "description": "Student admission records, biodata and academic profiles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "admissionNo": { "type": "string" },
+        "studentId": { "type": "string" },
+        "rollNo": { "type": "number" },
+        "name": { "type": "string" },
+        "nameUrdu": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "fatherNameUrdu": { "type": "string" },
+        "cnicBForm": { "type": "string" },
+        "dob": { "type": "string" },
+        "gender": { "type": "string" },
+        "previousSchool": { "type": "string" },
+        "previousClass": { "type": "string" },
+        "admissionDate": { "type": "string" },
+        "admissionClass": { "type": "string" },
+        "currentClass": { "type": "number" },
+        "section": { "type": "string" },
+        "address": { "type": "string" },
+        "contactNumber": { "type": "string" },
+        "guardianName": { "type": "string" },
+        "guardianContact": { "type": "string" },
+        "village": { "type": "string" },
+        "religion": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "status": { "type": "string" },
+        "academicYear": { "type": "string" }
+      },
+      "required": ["admissionNo", "name", "fatherName", "currentClass"]
+    },
+    "studentAttendance": {
+      "title": "StudentAttendance",
+      "description": "Daily student attendance records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "classGrade": { "type": "number" },
+        "section": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "status": { "type": "string" },
+        "remarks": { "type": "string" },
+        "academicYear": { "type": "string" }
+      },
+      "required": ["date", "classGrade", "studentId", "status"]
+    },
+    "exams": {
+      "title": "Exam",
+      "description": "Examination terms and schedules",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "titleUrdu": { "type": "string" },
+        "type": { "type": "string" },
+        "term": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "classGrade": { "type": "number" },
+        "subjectId": { "type": "string" },
+        "date": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "totalMarks": { "type": "number" },
+        "passingMarks": { "type": "number" },
+        "passingPercentage": { "type": "number" },
+        "isPublished": { "type": "boolean" }
+      },
+      "required": ["title", "academicYear", "classGrade", "totalMarks"]
+    },
+    "marks": {
+      "title": "ExamMark",
+      "description": "Subject-wise marks recorded for students in exams",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "examId": { "type": "string" },
+        "studentId": { "type": "string" },
+        "subjectId": { "type": "string" },
+        "classGrade": { "type": "number" },
+        "totalMarks": { "type": "number" },
+        "obtainedMarks": { "type": "number" },
+        "remarks": { "type": "string" },
+        "academicYear": { "type": "string" }
+      },
+      "required": ["examId", "studentId", "subjectId", "obtainedMarks"]
+    },
+    "classes": {
+      "title": "SchoolClass",
+      "description": "School classes 1 to 8 and sections",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "name": { "type": "string" },
+        "numericGrade": { "type": "number" },
+        "sections": { "type": "array" }
+      }
+    },
+    "subjects": {
+      "title": "Subject",
+      "description": "Curriculum subjects",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "nameUrdu": { "type": "string" }
+      }
+    },
+    "teachers": {
+      "title": "Teacher",
+      "description": "Teacher and staff records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "employeeId": { "type": "string" },
+        "designation": { "type": "string" }
+      }
+    },
+    "teacherAttendance": {
+      "title": "TeacherAttendance",
+      "description": "Teacher attendance records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "teacherId": { "type": "string" },
+        "status": { "type": "string" }
+      }
+    },
+    "fees": {
+      "title": "FeeRecord",
+      "description": "Farogh-e-Taleem and student fee records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "receiptNo": { "type": "string" },
+        "studentId": { "type": "string" },
+        "amount": { "type": "number" }
+      }
+    },
+    "certificates": {
+      "title": "SchoolCertificate",
+      "description": "Issued certificates",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "certificateNo": { "type": "string" },
+        "studentId": { "type": "string" },
+        "type": { "type": "string" }
+      }
+    },
+    "users": {
+      "title": "User",
+      "description": "School administrators, teachers, and staff user accounts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "assignedTeacherId": { "type": "string" }
+      },
+      "required": ["id", "username", "role", "name"]
+    },
+    "guardians": {
+      "title": "Guardian",
+      "description": "Student parent and guardian contact and identification records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "guardianName": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "cnic": { "type": "string" },
+        "contactNumber": { "type": "string" },
+        "relation": { "type": "string" },
+        "occupation": { "type": "string" },
+        "address": { "type": "string" }
+      },
+      "required": ["studentId", "guardianName", "contactNumber"]
+    },
+    "sections": {
+      "title": "Section",
+      "description": "Class sections (e.g., Section A, Section B)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "classGrade": { "type": "number" },
+        "name": { "type": "string" },
+        "capacity": { "type": "number" },
+        "roomNumber": { "type": "string" }
+      }
+    },
+    "academicYears": {
+      "title": "AcademicYear",
+      "description": "School academic sessions (e.g., 2025-2026, 2026-2027)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "year": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "isCurrent": { "type": "boolean" }
+      }
+    },
+    "results": {
+      "title": "CompiledResult",
+      "description": "Consolidated class and student exam merit results",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "examId": { "type": "string" },
+        "studentId": { "type": "string" },
+        "classGrade": { "type": "number" },
+        "totalMarks": { "type": "number" },
+        "obtainedMarks": { "type": "number" },
+        "percentage": { "type": "number" },
+        "grade": { "type": "string" },
+        "position": { "type": "number" },
+        "status": { "type": "string" },
+        "academicYear": { "type": "string" }
+      }
+    },
+    "promotions": {
+      "title": "PromotionRecord",
+      "description": "Student academic advancement and grade roll-over history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "fromClass": { "type": "number" },
+        "toClass": { "type": "number" },
+        "fromYear": { "type": "string" },
+        "toYear": { "type": "string" },
+        "promotionDate": { "type": "string" },
+        "status": { "type": "string" },
+        "remarks": { "type": "string" }
+      }
+    },
+    "schoolSettings": {
+      "title": "SchoolSettings",
+      "description": "Configuration, grading system, and institution parameters",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "gradingSystem": { "type": "array" },
+        "faroghFund": { "type": "number" }
+      }
+    }
+  }
+}

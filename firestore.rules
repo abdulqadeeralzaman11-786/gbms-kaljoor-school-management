@@ -1,0 +1,79 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // GBMS Kaljoor Database Collections
+    match /users/{document=**} {
+      allow read, write: if true;
+    }
+    match /students/{document=**} {
+      allow read, write: if true;
+    }
+    match /guardians/{document=**} {
+      allow read, write: if true;
+    }
+    match /teachers/{document=**} {
+      allow read, write: if true;
+    }
+    match /classes/{document=**} {
+      allow read, write: if true;
+    }
+    match /sections/{document=**} {
+      allow read, write: if true;
+    }
+    match /subjects/{document=**} {
+      allow read, write: if true;
+    }
+    match /academicYears/{document=**} {
+      allow read, write: if true;
+    }
+    match /studentAttendance/{document=**} {
+      allow read, write: if true;
+    }
+    match /attendance/{document=**} {
+      allow read, write: if true;
+    }
+    match /exams/{document=**} {
+      allow read, write: if true;
+    }
+    match /marks/{document=**} {
+      allow read, write: if true;
+    }
+    match /results/{document=**} {
+      allow read, write: if true;
+    }
+    match /promotions/{document=**} {
+      allow read, write: if true;
+    }
+    match /certificates/{document=**} {
+      allow read, write: if true;
+    }
+    match /teacherAttendance/{document=**} {
+      allow read, write: if true;
+    }
+    match /fees/{document=**} {
+      allow read, write: if true;
+    }
+    match /notices/{document=**} {
+      allow read, write: if true;
+    }
+    match /events/{document=**} {
+      allow read, write: if true;
+    }
+    match /timetable/{document=**} {
+      allow read, write: if true;
+    }
+    match /profile/{document=**} {
+      allow read, write: if true;
+    }
+    match /settings/{document=**} {
+      allow read, write: if true;
+    }
+    match /schoolSettings/{document=**} {
+      allow read, write: if true;
+    }
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+

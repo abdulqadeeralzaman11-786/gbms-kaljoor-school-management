@@ -1,0 +1,6 @@
+{
+  "name": "Govt. Boys Middle School Kaljoor - SMS",
+  "description": "Complete, modern and responsive School Management System for Govt. Boys Middle School Kaljoor, Tehsil Dadyal, District Mirpur, Azad Kashmir.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
